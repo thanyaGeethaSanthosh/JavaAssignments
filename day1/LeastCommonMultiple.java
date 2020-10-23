@@ -1,20 +1,25 @@
 public class LeastCommonMultiple {
 
-  public static void main(String[] args) {
-    int GCD = 0;
-    int num1 = Integer.parseInt(args[0]);
-    int num2 = Integer.parseInt(args[1]);
-    int num = num1 > num2 ? num2 : num1;
+  public static int greatestCommonDevisor(int num1, int num2) {
+    int gcd = ((num1 + num2) - Math.abs(num1 - num2)) / 2;
 
-    while (GCD == 0 && num > 0) {
-      if ((num1 % num) == (num2 % num)) {
-        GCD = num;
-      }
-      num--;
+    while (num1 % gcd != 0 || num2 % gcd != 0) {
+      gcd--;
     }
 
-    int LCM = (Math.abs(num1 * num2)) / GCD;
+    return gcd;
+  }
 
-    System.out.println(LCM);
+  public static int leastCommonMultiple(int num1, int num2) {
+    int gcd = greatestCommonDevisor(num1, num2);
+
+    return Math.abs(num1 * num2) / gcd;
+  }
+
+  public static void main(String[] args) {
+    int num1 = Integer.parseInt(args[0]);
+    int num2 = Integer.parseInt(args[1]);
+
+    System.out.println(leastCommonMultiple(num1, num2));
   }
 }

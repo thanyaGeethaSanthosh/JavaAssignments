@@ -1,15 +1,19 @@
-public class GreatestCommonDevisor{
-  public static void main(String[] args){
-    int GCD=0;
+public class GreatestCommonDevisor {
+
+  public static int greatestCommonDevisor(int num1, int num2) {
+    int gcd = ((num1 + num2) - Math.abs(num1 - num2)) / 2;
+
+    while (num1 % gcd != 0 || num2 % gcd != 0) {
+      gcd--;
+    }
+
+    return gcd;
+  }
+
+  public static void main(String[] args) {
     int num1 = Integer.parseInt(args[0]);
     int num2 = Integer.parseInt(args[1]);
-    int num=num1>num2?num2:num1;
-    while(GCD==0 && num>0){
-      if((num1%num)==(num2%num)){
-        GCD=num;
-      }
-      num--;
-    }
-    System.out.println(GCD);
+
+    System.out.println(greatestCommonDevisor(num1, num2));
   }
 }

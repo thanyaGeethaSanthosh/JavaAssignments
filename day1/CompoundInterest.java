@@ -1,12 +1,15 @@
 public class CompoundInterest {
 
+  public static double compoundInterest(int principle, int rate, int period) {
+    double interest = (Math.pow(rate + 1, period) * principle) - principle;
+    return interest;
+  }
+
   public static void main(String[] args) {
-    int principal = Integer.parseInt(args[0]);
+    int principle = Integer.parseInt(args[0]);
     int rate = Integer.parseInt(args[1]);
     int period = Integer.parseInt(args[2]);
 
-    double compoundInterest = ((principal * ( (1 + rate) ** period)) - principal);
-
-    System.out.println(compoundInterest);
+    System.out.println(compoundInterest(principle, rate, period));
   }
 }
