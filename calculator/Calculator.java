@@ -1,7 +1,7 @@
 public class Calculator {
-  public double operand1;
-  public double operand2;
-  public double result;
+  private double operand1;
+  private double operand2;
+  private double result;
 
   public Calculator(double operand1, double operand2) {
     this.operand1 = operand1;
