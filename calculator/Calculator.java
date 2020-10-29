@@ -8,7 +8,7 @@ public class Calculator {
     this.num2 = num2;
   }
 
-  public void evaluate(String operator) {
+  public boolean evaluate(String operator) {
     switch (operator) {
       case "+":
         this.result = this.num1 + this.num2;
@@ -22,8 +22,10 @@ public class Calculator {
       case "/":
         this.result = this.num1 / this.num2;
         break;
+      default:
+        return false;
     }
-    return;
+    return true;
   }
 
   public void displayResult() {
@@ -40,7 +42,11 @@ public class Calculator {
     int num2 = Integer.parseInt(args[1]);
 
     Calculator calculator = new Calculator(num1, num2);
-    calculator.evaluate(args[2]);
+    boolean isEvaluated = calculator.evaluate(args[2]);
+    if (!isEvaluated) {
+      System.out.println("Wrong operator");
+      return;
+    }
     calculator.displayResult();
   }
 }
