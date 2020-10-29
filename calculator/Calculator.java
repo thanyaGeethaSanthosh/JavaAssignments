@@ -32,8 +32,8 @@ public class Calculator {
       return;
     }
 
-    double operand1 = Integer.parseInt(args[0]);
-    double operand2 = Integer.parseInt(args[1]);
+    double operand1 = Double.parseDouble(args[0]);
+    double operand2 = Double.parseDouble(args[1]);
 
     Calculator calculator = new Calculator(operand1, operand2);
 
