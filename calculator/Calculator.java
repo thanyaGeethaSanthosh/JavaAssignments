@@ -1,35 +1,29 @@
 public class Calculator {
   private double operand1;
   private double operand2;
-  private double result;
 
   public Calculator(double operand1, double operand2) {
     this.operand1 = operand1;
     this.operand2 = operand2;
   }
 
-  public boolean evaluate(String operator) {
+  public double evaluate(String operator) {
+    double result = 0;
     switch (operator) {
       case "+":
-        this.result = this.operand1 + this.operand2;
+        result = this.operand1 + this.operand2;
         break;
       case "-":
-        this.result = this.operand1 - this.operand2;
+        result = this.operand1 - this.operand2;
         break;
       case "x":
-        this.result = this.operand1 * this.operand2;
+        result = this.operand1 * this.operand2;
         break;
       case "/":
-        this.result = this.operand1 / this.operand2;
+        result = this.operand1 / this.operand2;
         break;
-      default:
-        return false;
     }
-    return true;
-  }
-
-  public void displayResult() {
-    System.out.println(this.result);
+    return result;
   }
 
   public static void main(String[] args) {
@@ -42,11 +36,7 @@ public class Calculator {
     double operand2 = Integer.parseInt(args[1]);
 
     Calculator calculator = new Calculator(operand1, operand2);
-    boolean isEvaluated = calculator.evaluate(args[2]);
-    if (!isEvaluated) {
-      System.out.println("Wrong operator");
-      return;
-    }
-    calculator.displayResult();
+
+    System.out.println(calculator.evaluate(args[2]));
   }
 }
