@@ -24,8 +24,10 @@ public class InfixExpressionCalculator {
   }
 
   public static double calculate(String[] expression) {
-    double operand1 = Double.parseDouble(expression[0]);
-    double operand2 = 0;
+    double operand1 = expression.length > 0
+      ? Double.parseDouble(expression[0])
+      : 0;
+    double operand2;
     String operator;
     for (int index = 1; index < expression.length; index += 2) {
       operator = expression[index];
