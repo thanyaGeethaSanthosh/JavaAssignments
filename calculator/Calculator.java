@@ -13,6 +13,15 @@ public class Calculator {
       case "+":
         this.result = this.num1 + this.num2;
         break;
+      case "-":
+        this.result = this.num1 - this.num2;
+        break;
+      case "x":
+        this.result = this.num1 * this.num2;
+        break;
+      case "/":
+        this.result = this.num1 / this.num2;
+        break;
     }
     return;
   }
